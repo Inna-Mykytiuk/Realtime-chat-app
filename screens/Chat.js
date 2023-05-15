@@ -4,7 +4,12 @@ import React, {
   useLayoutEffect,
   useCallback,
 } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
 import {
   collection,
@@ -85,22 +90,42 @@ export default function Chat() {
     //     <Text key={message._id}>{message.text}</Text>
     //   ))}
     // </>
-    <GiftedChat
-      messages={messages}
-      showAvatarForEveryMessage={false}
-      showUserAvatar={false}
-      onSend={(messages) => onSend(messages)}
-      messagesContainerStyle={{
-        backgroundColor: "#fff",
-      }}
-      textInputStyle={{
-        backgroundColor: "#fff",
-        borderRadius: 20,
-      }}
-      user={{
-        _id: auth?.currentUser?.email,
-        avatar: "https://i.pravatar.cc/300",
-      }}
-    />
+    <ImageBackground
+      style={styles.image}
+      source={require("../assets/forest1.jpg")}
+    >
+      <GiftedChat
+        renderBubble={renderBubble}
+        renderSend={renderSend}
+        messages={messages}
+        showAvatarForEveryMessage={false}
+        showUserAvatar={false}
+        onSend={(messages) => onSend(messages)}
+        messagesContainerStyle={{
+          backgroundColor: "transparent",
+        }}
+        textInputStyle={{
+          backgroundColor: "#fff",
+          borderRadius: 20,
+        }}
+        user={{
+          _id: auth?.currentUser?.email,
+          avatar: "https://i.pravatar.cc/300",
+        }}
+      />
+    </ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+  },
+});

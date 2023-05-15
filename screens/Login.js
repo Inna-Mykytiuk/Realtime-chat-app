@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
-// const backImage = require("../assets/backImage.png");
+const backImage = require("../assets/bg.jpg");
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -29,7 +29,7 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* <Image source={backImage} style={styles.backImage} /> */}
+      <Image source={backImage} style={styles.backImage} />
       <View style={styles.whiteSheet} />
       <SafeAreaView style={styles.form}>
         <Text style={styles.title}>Log In</Text>
@@ -71,7 +71,7 @@ export default function Login({ navigation }) {
             Don't have an account?{" "}
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-            <Text style={{ color: "#f57c00", fontWeight: "600", fontSize: 14 }}>
+            <Text style={{ color: "#609948", fontWeight: "600", fontSize: 14 }}>
               {" "}
               Sign Up
             </Text>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     fontWeight: "bold",
-    color: "orange",
+    color: "#d5e6b7",
     alignSelf: "center",
     paddingBottom: 24,
   },
@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
   },
   button: {
-    backgroundColor: "#f57c00",
+    // backgroundColor: "#f57c00",
+    backgroundColor: "#609948",
     height: 58,
     borderRadius: 10,
     justifyContent: "center",
