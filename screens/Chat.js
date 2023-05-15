@@ -95,8 +95,6 @@ export default function Chat() {
       source={require("../assets/forest1.jpg")}
     >
       <GiftedChat
-        renderBubble={renderBubble}
-        renderSend={renderSend}
         messages={messages}
         showAvatarForEveryMessage={false}
         showUserAvatar={false}
